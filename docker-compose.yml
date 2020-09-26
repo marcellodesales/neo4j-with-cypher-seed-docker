@@ -1,0 +1,19 @@
+version: '3.0'
+
+services:
+
+  neo4j:
+    build:
+      context: .
+    image: marcellodesales/neo4j-with-cql-seed:${IMAGE_TAG:-latest}
+    environment:
+      -  NEO4J_AUTH=none # Just click on the login button without password
+    ports:
+      - "7474:7474"  # Go to http://localhost:7474/browser/ after bootstrapping
+      - "7687:7687"
+    volumes:
+      - ./neo4j-runtime/data:/data"
+      - ./neo4j-runtime/logs:/logs"
+      - ./neo4j-runtime/import:/var/lib/neo4j/import"
+      - ./neo4j-runtime/plugins:/plugins"
+      - ./cypher_query.cql:/cyphers/interviews.cql
