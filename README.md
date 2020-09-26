@@ -1,4 +1,4 @@
-# neo4j-with-wrapper-docker
+# neo4j-with-seed-docker
 
 Neo4J GraphDB Dockerized with support to Wrappers to load provided `*.cql`.
 
