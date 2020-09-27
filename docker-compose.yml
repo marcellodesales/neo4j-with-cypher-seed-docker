@@ -5,9 +5,12 @@ services:
   neo4j:
     build:
       context: .
-    image: marcellodesales/neo4j-with-cql-seed:${IMAGE_TAG:-latest}
+    image: marcellodesales/neo4j-with-cypher-seed:${IMAGE_TAG:-latest}
     environment:
-      -  NEO4J_AUTH=none # Just click on the login button without password
+      # - NEO4J_AUTH=neo4j/test # Just click on the login button without password
+      - NEO4J_AUTH=none # Just click on the login button without password
+      # - NEO4J_USERNAME=neo4j
+      # - NEO4J_PASSWORD=test
     ports:
       - "7474:7474"  # Go to http://localhost:7474/browser/ after bootstrapping
       - "7687:7687"
